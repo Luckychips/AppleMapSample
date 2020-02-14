@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		BA172CB223F6664400985BE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CB123F6664400985BE2 /* AppDelegate.swift */; };
 		BA172CB423F6664400985BE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CB323F6664400985BE2 /* SceneDelegate.swift */; };
-		BA172CB623F6664400985BE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CB523F6664400985BE2 /* ContentView.swift */; };
 		BA172CB823F6664500985BE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA172CB723F6664500985BE2 /* Assets.xcassets */; };
 		BA172CBB23F6664500985BE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA172CBA23F6664500985BE2 /* Preview Assets.xcassets */; };
 		BA172CBE23F6664500985BE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA172CBC23F6664500985BE2 /* LaunchScreen.storyboard */; };
 		BA172CC923F6664600985BE2 /* AppleMapSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CC823F6664600985BE2 /* AppleMapSampleTests.swift */; };
 		BA172CD423F6664600985BE2 /* AppleMapSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CD323F6664600985BE2 /* AppleMapSampleUITests.swift */; };
+		BA172CE223F6684D00985BE2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CE123F6684D00985BE2 /* MapView.swift */; };
+		BA172CE523F66B4100985BE2 /* LandmarkAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CE423F66B4100985BE2 /* LandmarkAnnotation.swift */; };
+		BA172CE923F66C0300985BE2 /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA172CE823F66C0300985BE2 /* MapViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 		BA172CAE23F6664400985BE2 /* AppleMapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA172CB123F6664400985BE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA172CB323F6664400985BE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA172CB523F6664400985BE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BA172CB723F6664500985BE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA172CBA23F6664500985BE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA172CBD23F6664500985BE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		BA172CCF23F6664600985BE2 /* AppleMapSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleMapSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA172CD323F6664600985BE2 /* AppleMapSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapSampleUITests.swift; sourceTree = "<group>"; };
 		BA172CD523F6664600985BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA172CE123F6684D00985BE2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		BA172CE423F66B4100985BE2 /* LandmarkAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkAnnotation.swift; sourceTree = "<group>"; };
+		BA172CE823F66C0300985BE2 /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,11 @@
 		BA172CB023F6664400985BE2 /* AppleMapSample */ = {
 			isa = PBXGroup;
 			children = (
+				BA172CE723F66BE600985BE2 /* Delegates */,
+				BA172CE623F66B8D00985BE2 /* Views */,
+				BA172CE323F66B1F00985BE2 /* Models */,
 				BA172CB123F6664400985BE2 /* AppDelegate.swift */,
 				BA172CB323F6664400985BE2 /* SceneDelegate.swift */,
-				BA172CB523F6664400985BE2 /* ContentView.swift */,
 				BA172CB723F6664500985BE2 /* Assets.xcassets */,
 				BA172CBC23F6664500985BE2 /* LaunchScreen.storyboard */,
 				BA172CBF23F6664500985BE2 /* Info.plist */,
@@ -134,6 +140,30 @@
 				BA172CD523F6664600985BE2 /* Info.plist */,
 			);
 			path = AppleMapSampleUITests;
+			sourceTree = "<group>";
+		};
+		BA172CE323F66B1F00985BE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA172CE423F66B4100985BE2 /* LandmarkAnnotation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BA172CE623F66B8D00985BE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA172CE123F6684D00985BE2 /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA172CE723F66BE600985BE2 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BA172CE823F66C0300985BE2 /* MapViewCoordinator.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +297,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA172CE523F66B4100985BE2 /* LandmarkAnnotation.swift in Sources */,
 				BA172CB223F6664400985BE2 /* AppDelegate.swift in Sources */,
+				BA172CE223F6684D00985BE2 /* MapView.swift in Sources */,
 				BA172CB423F6664400985BE2 /* SceneDelegate.swift in Sources */,
-				BA172CB623F6664400985BE2 /* ContentView.swift in Sources */,
+				BA172CE923F66C0300985BE2 /* MapViewCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
