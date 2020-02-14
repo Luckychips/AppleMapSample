@@ -22,6 +22,10 @@ class LandmarkAnnotation: NSObject, MKAnnotation {
         self.coordinate = coordinate
     }
     
+
+    let sourceCoord = CLLocationCoordinate2D(latitude: 37.5703244, longitude: 126.9741083)
+    let destinationCoord = CLLocationCoordinate2D(latitude: 37.5752395, longitude: 126.9710357)
+    
     static func requestMockData()-> [LandmarkAnnotation] {
         return [
             LandmarkAnnotation(title: "Bengalore",
@@ -29,7 +33,14 @@ class LandmarkAnnotation: NSObject, MKAnnotation {
                                coordinate: .init(latitude: 12.9716, longitude: 77.5946)),
             LandmarkAnnotation(title: "Mumbai",
                                subtitle:"Mumbai (formerly called Bombay) is a densely populated city on India’s west coast",
-                               coordinate: .init(latitude: 19.0760, longitude: 72.8777))
+                               coordinate: .init(latitude: 19.0760, longitude: 72.8777)),
+            LandmarkAnnotation(title: "hello",
+                               subtitle:"hello.",
+                               coordinate: .init(latitude: 37.5703244, longitude: 126.9741083)),
+            LandmarkAnnotation(title: "bye",
+                               subtitle:"bye.",
+                               coordinate: .init(latitude: 37.5752395, longitude: 126.9710357))
+            
         ]
     }
 }

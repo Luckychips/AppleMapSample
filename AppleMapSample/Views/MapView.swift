@@ -25,8 +25,8 @@ struct MapView: UIViewRepresentable {
 //        let sourceCoord = CLLocationCoordinate2D(latitude: 37.5816061, longitude: 127.004803)
 //        let destinationCoord = CLLocationCoordinate2D(latitude: 37.5703712, longitude: 126.9741075)
         
-        let sourceCoord = CLLocationCoordinate2D(latitude: 37.4998222, longitude: 127.0349081)
-        let destinationCoord = CLLocationCoordinate2D(latitude: 37.5019392, longitude: 127.0300831)
+        let sourceCoord = CLLocationCoordinate2D(latitude: 37.5703244, longitude: 126.9741083)
+        let destinationCoord = CLLocationCoordinate2D(latitude: 37.5752395, longitude: 126.9710357)
 
         let source = MKPlacemark(coordinate: sourceCoord)
         let destination = MKPlacemark(coordinate: destinationCoord)
@@ -44,6 +44,10 @@ struct MapView: UIViewRepresentable {
             
             let route = unwrapped.routes[0]
             
+            print(route.expectedTravelTime)
+//            print(route.advisoryNotices)
+            print(route.distance)
+            
             
             for step in route.steps {
                 print("\(String(format: "%.0fm", step.distance)) - \(step.instructions)")
@@ -59,10 +63,12 @@ struct MapView: UIViewRepresentable {
     
     func convert() {
         let geocoder = CLGeocoder()
-        let addressString = "서울특별시 역삼동 테헤란로 142"
-        // latitude : 37.4998222, longitude : 127.0349081
-//        let addressString = "서울특별시 강남구 테헤란로7길 32"
-        // latitude : 37.5019392, longitude : 127.0300831
+//        let addressString = "서울특별시 종로구 사직동 새문안로 85"
+//        latitude : 37.5703244, longitude : 126.9741083
+        
+        
+        let addressString = "서울특별시 종로구 내자동 사직로12길 17"
+//        latitude : 37.5752395, longitude : 126.9710357
         
         
         geocoder.geocodeAddressString(addressString) { (placemarks, error) in
