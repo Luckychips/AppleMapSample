@@ -21,15 +21,20 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ view: MKMapView, context: Context) {
-        let sourceCoord = CLLocationCoordinate2D(latitude: 37.5816061, longitude: 127.004803)
-        let destinationCoord = CLLocationCoordinate2D(latitude: 37.5703712, longitude: 126.9741075)
+//        convert()
+//        let sourceCoord = CLLocationCoordinate2D(latitude: 37.5816061, longitude: 127.004803)
+//        let destinationCoord = CLLocationCoordinate2D(latitude: 37.5703712, longitude: 126.9741075)
+        
+        let sourceCoord = CLLocationCoordinate2D(latitude: 37.4998222, longitude: 127.0349081)
+        let destinationCoord = CLLocationCoordinate2D(latitude: 37.5019392, longitude: 127.0300831)
+
         let source = MKPlacemark(coordinate: sourceCoord)
         let destination = MKPlacemark(coordinate: destinationCoord)
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: source)
         request.destination = MKMapItem(placemark: destination)
         request.requestsAlternateRoutes = true
-        request.transportType = .automobile
+        request.transportType = .walking
         
         let directions = MKDirections(request: request)
         directions.calculate { (response, error) in
@@ -50,6 +55,25 @@ struct MapView: UIViewRepresentable {
         
         view.delegate = context.coordinator
         view.addAnnotations(landmarks)
+    }
+    
+    func convert() {
+        let geocoder = CLGeocoder()
+        let addressString = "서울특별시 역삼동 테헤란로 142"
+        // latitude : 37.4998222, longitude : 127.0349081
+//        let addressString = "서울특별시 강남구 테헤란로7길 32"
+        // latitude : 37.5019392, longitude : 127.0300831
+        
+        
+        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    print("latitude : \(location.coordinate.latitude), longitude : \(location.coordinate.longitude)")
+                    return
+                }
+            }
+        }
     }
 }
 
